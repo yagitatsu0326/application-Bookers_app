@@ -4,6 +4,7 @@
 	<title></title>
 </head>
 <body>
+	<%= flash[:notice] %>
 	<h1>Books</h1>
 	<table>
 		<thead>
@@ -14,7 +15,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<% @books. each do |book| %>
+			<% @books.each do |book| %>
 				<tr>
 					<td><%= book.title %></td>
 					<td><%= book.body %></td>
@@ -26,18 +27,18 @@
 		</tbody>
 	</table>
 	<h2>New Books</h2>
-	
+	<% @book.errors.full_messages.each do |message| %>
+		<%= message %>
+	<% end %>
 	<%= form_for(@book, url: books_path ) do |f| %>
 		<p>Title</p>
 		<%= f.text_field :title  %>
 		<p>Body</p>
 		<%= f.text_area :body  %>
-		<%= f.submit "Create Book"  %>
+		<br><%= f.submit "Create Book"  %></br>s
 	<% end %>
 </body>
 </html>
-
-
 
 
 

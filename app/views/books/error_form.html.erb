@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<% if book.errors.any? %>
+  		<div class = "alert">
+    		<ul>
+      			<% book.errors.full_messages.each do |message| %>
+        		<li><%= message %></li>
+      			<% end %>
+    		</ul>
+  		</div>
+	<% end %>
+</body>
+</html>
